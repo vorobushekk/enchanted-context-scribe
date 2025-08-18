@@ -45,3 +45,6 @@ enable_signup = true
 
 [functions.dynamic-task]
 verify_jwt = false
+
+[functions.super-handler]
+verify_jwt = false
