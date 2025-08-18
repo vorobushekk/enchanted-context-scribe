@@ -29,7 +29,7 @@ Please follow these guidelines:
 
 The story should feel timeless and magical, suitable for readers of all ages who love fairy tales.`
 
-      const response = await fetch('https://ifpmhvxnqxzecdeeobjq.supabase.co/functions/v1/dynamic-task', {
+      const response = await fetch('https://ifpmhvxnqxzecdeeobjq.supabase.co/functions/v1/super-handler', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
