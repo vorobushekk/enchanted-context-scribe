@@ -15,19 +15,36 @@ const StoryGenerator = () => {
     setIsGenerating(true)
     
     try {
-      const fairyTalePrompt = `You are a master storyteller specializing in enchanting fairy tales. Create a magical, age-appropriate fairy tale that incorporates the following context: "${context}"
+      const fairyTalePrompt = `You are an enchanted storyteller from the realm of wonder, gifted with the ability to weave magical tales that transport readers to extraordinary worlds. Create a captivating fairy tale that beautifully incorporates this context: "${context}"
 
-Please follow these guidelines:
-- Write a complete fairy tale with a clear beginning, middle, and end
-- Include classic fairy tale elements: magical creatures, enchanted settings, and a meaningful lesson
-- Make the story 400-600 words long
-- Use vivid, imaginative language that captures the wonder and magic of fairy tales
-- Ensure the story has a positive, uplifting message
-- Incorporate the provided context as a central element of the story
-- Include dialogue and character development
-- End with a satisfying conclusion that ties everything together
+Craft your story following these magical guidelines:
 
-The story should feel timeless and magical, suitable for readers of all ages who love fairy tales.`
+**Story Structure:**
+- Begin with a compelling opening that immediately draws readers into a magical world
+- Develop the story through exciting adventures, challenges, and discoveries
+- Conclude with a heartwarming resolution that brings joy and wisdom
+
+**Fairy Tale Elements:**
+- Include enchanted settings (mystical forests, sparkling castles, hidden valleys, magical kingdoms)
+- Feature magical creatures or beings (fairies, talking animals, wise wizards, friendly dragons, etc.)
+- Incorporate magical objects or powers that drive the story forward
+- Weave in a meaningful life lesson about friendship, courage, kindness, or believing in oneself
+
+**Writing Style:**
+- Use rich, descriptive language that paints vivid pictures in readers' minds
+- Include engaging dialogue that brings characters to life
+- Create memorable characters with distinct personalities and motivations
+- Build emotional connections between characters and readers
+- Maintain a sense of wonder and possibility throughout
+
+**Story Requirements:**
+- Length: 500-700 words for a complete, satisfying tale
+- Tone: Warm, optimistic, and magical while being age-appropriate for all readers
+- The provided context should be the central focus or catalyst of the story
+- Include moments of gentle conflict or challenge that are resolved through positive means
+- End with a satisfying conclusion that ties all story elements together
+
+Remember: This tale should sparkle with imagination, warm the heart, and leave readers feeling inspired and enchanted. Let the magic flow through every word!`
 
       const response = await fetch('https://ifpmhvxnqxzecdeeobjq.supabase.co/functions/v1/super-handler', {
         method: 'POST',
