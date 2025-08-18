@@ -55,6 +55,8 @@ serve(async (req) => {
     }
 
     const openAIApiKey = Deno.env.get('OPENAI_API_KEY');
+    console.log('API Key status:', openAIApiKey ? 'Present' : 'Missing');
+    console.log('API Key length:', openAIApiKey ? openAIApiKey.length : 0);
     
     if (!openAIApiKey) {
       console.warn('OPENAI_API_KEY not found, using fallback story generation');
@@ -74,6 +76,30 @@ serve(async (req) => {
     }
 
     console.log('Making request to OpenAI API...');
+    console.log('Model: gpt-4.1-2025-04-14');
+    console.log('Prompt length:', prompt.length);
+    console.log('Prompt preview:', prompt.substring(0, 100) + (prompt.length > 100 ? '...' : ''));
+    
+    const requestBody = {
+      model: 'gpt-4.1-2025-04-14',
+      messages: [
+        {
+          role: 'system',
+          content: 'You are a master storyteller who creates enchanting fairy tales. Your stories should be magical, whimsical, and suitable for all ages. Include vivid descriptions, memorable characters, and a satisfying conclusion with a positive message.'
+        },
+        {
+          role: 'user',
+          content: prompt
+        }
+      ],
+      max_completion_tokens: 800,
+    };
+    
+    console.log('Request body structure:', {
+      model: requestBody.model,
+      messagesCount: requestBody.messages.length,
+      maxTokens: requestBody.max_completion_tokens
+    });
     
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
@@ -81,20 +107,7 @@ serve(async (req) => {
         'Authorization': `Bearer ${openAIApiKey}`,
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        model: 'gpt-5-2025-08-07',
-        messages: [
-          {
-            role: 'system',
-            content: 'You are a master storyteller who creates enchanting fairy tales. Your stories should be magical, whimsical, and suitable for all ages. Include vivid descriptions, memorable characters, and a satisfying conclusion with a positive message.'
-          },
-          {
-            role: 'user',
-            content: prompt
-          }
-        ],
-        max_completion_tokens: 800,
-      }),
+      body: JSON.stringify(requestBody),
     });
 
     if (!response.ok) {
@@ -151,6 +164,20 @@ serve(async (req) => {
 
     const data = await response.json();
     console.log('Successfully received response from OpenAI');
+    console.log('Response status:', response.status);
+    console.log('Response data structure:', {
+      hasChoices: !!data.choices,
+      choicesLength: data.choices?.length || 0,
+      hasContent: !!(data.choices?.[0]?.message?.content),
+      contentLength: data.choices?.[0]?.message?.content?.length || 0,
+      usage: data.usage
+    });
+    
+    if (data.choices?.[0]?.message?.content) {
+      console.log('Content preview:', data.choices[0].message.content.substring(0, 200) + '...');
+    } else {
+      console.log('No content in response:', JSON.stringify(data, null, 2));
+    }
     
     const generatedText = (data?.choices?.[0]?.message?.content ?? '') as string;
 
