@@ -14,21 +14,43 @@ const StoryGenerator = () => {
     
     setIsGenerating(true)
     
-    // Simulate story generation - replace with actual AI integration later
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    const sampleStory = `Once upon a time, in a land where ${context.toLowerCase()}, there lived a brave little fairy named Luna. She discovered that the magic of the forest was fading, and only through courage and kindness could she restore the enchantment to her beloved home.
+    try {
+      const fairyTalePrompt = `You are a master storyteller specializing in enchanting fairy tales. Create a magical, age-appropriate fairy tale that incorporates the following context: "${context}"
 
-As Luna ventured deeper into the mystical woods, she encountered talking animals who had lost their voices, flowers that had forgotten how to bloom, and streams that had stopped their gentle babbling. But Luna's heart was pure, and her determination unwavering.
+Please follow these guidelines:
+- Write a complete fairy tale with a clear beginning, middle, and end
+- Include classic fairy tale elements: magical creatures, enchanted settings, and a meaningful lesson
+- Make the story 400-600 words long
+- Use vivid, imaginative language that captures the wonder and magic of fairy tales
+- Ensure the story has a positive, uplifting message
+- Incorporate the provided context as a central element of the story
+- Include dialogue and character development
+- End with a satisfying conclusion that ties everything together
 
-With each act of kindness, each moment of bravery, the magic slowly began to return. The animals found their voices in songs of joy, the flowers burst into brilliant colors, and the streams danced once more with crystalline laughter.
+The story should feel timeless and magical, suitable for readers of all ages who love fairy tales.`
 
-And so, through the power of believing in magic and the strength found in ${context.toLowerCase()}, Luna saved her enchanted world, proving that the greatest magic of all comes from within our hearts.
+      const response = await fetch('https://ifpmhvxnqxzecdeeobjq.supabase.co/functions/v1/dynamic-task', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          prompt: fairyTalePrompt
+        })
+      })
 
-The End.`
-    
-    setStory(sampleStory)
-    setIsGenerating(false)
+      if (!response.ok) {
+        throw new Error('Failed to generate story')
+      }
+
+      const data = await response.json()
+      setStory(data.generatedText || data.response || 'A magical story was created, but it seems to have vanished into the enchanted mists!')
+    } catch (error) {
+      console.error('Error generating story:', error)
+      setStory('Oops! The magic seems to be taking a little break. Please try again in a moment!')
+    } finally {
+      setIsGenerating(false)
+    }
   }
 
   return (
