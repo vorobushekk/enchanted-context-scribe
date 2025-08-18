@@ -26,7 +26,9 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					glow: 'hsl(var(--primary-glow))',
+					dark: 'hsl(var(--primary-dark))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -62,6 +64,18 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			backgroundImage: {
+				'gradient-magical': 'var(--gradient-magical)',
+				'gradient-enchanted': 'var(--gradient-enchanted)',
+				'gradient-sparkle': 'var(--gradient-sparkle)'
+			},
+			boxShadow: {
+				'magical': 'var(--shadow-magical)',
+				'sparkle': 'var(--shadow-sparkle)'
+			},
+			transitionTimingFunction: {
+				'magical': 'var(--transition-magical)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
