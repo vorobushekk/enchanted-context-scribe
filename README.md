@@ -1,6 +1,6 @@
 # ✨ [Magical Stories Generator](https://enchanted-context-scribe.lovable.app)
 
-> Transform your ideas into beautiful fairy tales suitable for children with the power of AI.
+> Transform your ideas into beautiful fairy tales for children with the power of AI.
 
 ![Magical Stories Generator](https://img.shields.io/badge/Status-Live-brightgreen) ![Built with Supabase](https://img.shields.io/badge/Backend-Supabase-green) ![AI Powered](https://img.shields.io/badge/AI-OpenAI%20GPT-blue)
 
