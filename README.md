@@ -1,12 +1,12 @@
 # ✨ [Magical Stories Generator](https://enchanted-context-scribe.lovable.app)
 
-> Where imagination meets enchantment. Transform your ideas into beautiful fairy tales with the power of AI.
+> Transform your ideas into beautiful fairy tales suitable for children with the power of AI.
 
 ![Magical Stories Generator](https://img.shields.io/badge/Status-Live-brightgreen) ![Built with Supabase](https://img.shields.io/badge/Backend-Supabase-green) ![AI Powered](https://img.shields.io/badge/AI-OpenAI%20GPT-blue)
 
 ## 🌟 Overview
 
-Magical Stories Generator is a beautiful, responsive web application that transforms user prompts into enchanting fairy tales. Built with modern web technologies and powered by AI, it offers a secure, scalable platform for creative storytelling.
+Magical Stories Generator  is a beautiful, responsive web application that transforms user prompts into enchanting fairy tales for children. Built with modern web technologies and powered by AI, it offers a secure, scalable platform for creative storytelling.
 
 ## ✨ Features
 
