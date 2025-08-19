@@ -156,8 +156,34 @@ Please write only the fairy tale text without any additional commentary.`
           </CardHeader>
           <CardContent>
             <div className="prose prose-lg max-w-none">
-              <div className="text-foreground whitespace-pre-wrap leading-relaxed font-storybook text-lg">
-                {story}
+              <div className="text-foreground leading-relaxed font-storybook text-lg">
+                {story.split('\n').map((line, index) => {
+                  // Check if line starts and ends with **
+                  const titleMatch = line.match(/^\*\*(.*)\*\*$/);
+                  if (titleMatch) {
+                    return (
+                      <div key={index} className="text-center font-magical font-semibold text-xl text-primary mb-4 mt-2">
+                        ✨ {titleMatch[1]} ✨
+                      </div>
+                    );
+                  }
+                  // Check if it's the "End of the story" line
+                  if (line.includes('✨ End of the story ✨')) {
+                    return (
+                      <div key={index} className="text-center font-magical font-semibold text-lg text-primary mt-6">
+                        {line}
+                      </div>
+                    );
+                  }
+                  // Return regular text lines
+                  return line ? (
+                    <div key={index} className="mb-2">
+                      {line}
+                    </div>
+                  ) : (
+                    <div key={index} className="mb-2"></div>
+                  );
+                })}
               </div>
             </div>
           </CardContent>
