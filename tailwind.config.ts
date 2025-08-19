@@ -74,6 +74,10 @@ export default {
 				'magical': 'var(--shadow-magical)',
 				'sparkle': 'var(--shadow-sparkle)'
 			},
+			fontFamily: {
+				'storybook': ['Fredoka', 'cursive'],
+				'magical': ['Poppins', 'sans-serif']
+			},
 			transitionTimingFunction: {
 				'magical': 'var(--transition-magical)'
 			},

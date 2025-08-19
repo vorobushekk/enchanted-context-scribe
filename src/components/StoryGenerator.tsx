@@ -1,13 +1,17 @@
 import React, { useState } from 'react'
 import { Textarea } from '@/components/ui/textarea'
 import { MagicalButton } from '@/components/ui/magical-button'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Wand2, Sparkles, BookOpen } from 'lucide-react'
+import { Wand2, Sparkles, BookOpen, Copy, Check } from 'lucide-react'
+import { useToast } from '@/hooks/use-toast'
 
 const StoryGenerator = () => {
   const [context, setContext] = useState('')
   const [story, setStory] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
+  const [isCopied, setIsCopied] = useState(false)
+  const { toast } = useToast()
 
   const generateStory = async () => {
     if (!context.trim()) return
@@ -45,12 +49,31 @@ Please write only the fairy tale text without any additional commentary.`
       }
 
       const data = await response.json()
-      setStory(data.generatedText || data.response || 'A magical story was created, but it seems to have vanished into the enchanted mists!')
+      const storyText = data.generatedText || data.response || 'A magical story was created, but it seems to have vanished into the enchanted mists!'
+      setStory(storyText + '\n\n✨ End of the story ✨')
     } catch (error) {
       console.error('Error generating story:', error)
       setStory('Oops! The magic seems to be taking a little break. Please try again in a moment!')
     } finally {
       setIsGenerating(false)
+    }
+  }
+
+  const copyStory = async () => {
+    try {
+      await navigator.clipboard.writeText(story)
+      setIsCopied(true)
+      toast({
+        title: "Story copied!",
+        description: "The magical tale has been copied to your clipboard.",
+      })
+      setTimeout(() => setIsCopied(false), 2000)
+    } catch (error) {
+      toast({
+        title: "Copy failed",
+        description: "Unable to copy the story. Please try again.",
+        variant: "destructive",
+      })
     }
   }
 
@@ -106,14 +129,34 @@ Please write only the fairy tale text without any additional commentary.`
       {story && (
         <Card className="backdrop-blur-sm bg-card/80 shadow-sparkle border-primary/20">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-xl text-foreground">
-              <BookOpen className="w-5 h-5 text-primary" />
-              Your Magical Tale
+            <CardTitle className="flex items-center justify-between text-xl text-foreground">
+              <div className="flex items-center gap-2">
+                <BookOpen className="w-5 h-5 text-primary" />
+                Your Magical Tale
+              </div>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={copyStory}
+                className="flex items-center gap-2 hover:bg-accent/50"
+              >
+                {isCopied ? (
+                  <>
+                    <Check className="w-4 h-4" />
+                    Copied!
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-4 h-4" />
+                    Copy Story
+                  </>
+                )}
+              </Button>
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="prose prose-lg max-w-none">
-              <div className="text-foreground whitespace-pre-wrap leading-relaxed font-serif">
+              <div className="text-foreground whitespace-pre-wrap leading-relaxed font-storybook text-lg">
                 {story}
               </div>
             </div>
