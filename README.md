@@ -1,4 +1,4 @@
-# ✨ Magical Stories Generator (https://enchanted-context-scribe.lovable.app)
+# ✨ [Magical Stories Generator](https://enchanted-context-scribe.lovable.app)
 
 > Where imagination meets enchantment. Transform your ideas into beautiful fairy tales with the power of AI.
 
