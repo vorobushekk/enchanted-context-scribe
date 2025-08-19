@@ -1,4 +1,4 @@
-# ✨ Magical Stories Generator
+# ✨ Magical Stories Generator (https://enchanted-context-scribe.lovable.app)
 
 > Where imagination meets enchantment. Transform your ideas into beautiful fairy tales with the power of AI.
 
@@ -13,9 +13,7 @@ Magical Stories Generator is a beautiful, responsive web application that transf
 - **AI-Powered Story Generation**: Create unique fairy tales using advanced OpenAI GPT models
 - **Beautiful Magical UI**: Immersive design with animated sparkles, gradients, and enchanting visuals
 - **Responsive Design**: Seamlessly works across desktop, tablet, and mobile devices
-- **Dark/Light Theme Support**: Automatic theme switching for optimal viewing experience
 - **One-Click Copy**: Easily copy generated stories to clipboard
-- **Real-time Feedback**: Interactive loading states and toast notifications
 - **Secure Backend**: All API keys and sensitive data protected through Supabase
 
 ## 🔒 Security & Architecture
@@ -67,6 +65,8 @@ This application leverages **Supabase** as its backend-as-a-service platform for
 - npm or yarn or bun
 - Supabase account (for backend services)
 - OpenAI API key
+OR 
+- Lovable account to open the project 
 
 ### Installation
 
@@ -149,37 +149,15 @@ No environment variables are needed in the frontend - all configuration is handl
 - `SUPABASE_URL` - Configured in client
 - `SUPABASE_ANON_KEY` - Configured in client
 
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
-
-### Development Guidelines
-
-1. Follow TypeScript best practices
-2. Use the existing design system tokens
-3. Maintain accessibility standards
-4. Add appropriate error handling
-5. Update documentation as needed
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
+- **Lovable** for writing, debagging, assemmbling and deploying the web app for me :) 
 - **OpenAI** for providing the GPT API for story generation
 - **Supabase** for the secure, scalable backend platform
-- **Radix UI** for accessible component primitives
-- **Tailwind CSS** for the utility-first CSS framework
-- **Lucide** for the beautiful icon set
-
-## 📞 Support
-
-If you encounter any issues or have questions:
-
-1. Check the [Issues](https://github.com/yourusername/magical-stories-generator/issues) page
-2. Create a new issue with detailed information
-3. For Supabase-related issues, check the [Supabase documentation](https://supabase.com/docs)
 
 ---
 
@@ -187,6 +165,4 @@ If you encounter any issues or have questions:
 
 **✨ Made with magic and modern web technologies ✨**
 
-[Live Demo](https://your-app-url.lovable.app) • [Documentation](https://docs.lovable.dev) • [Report Bug](https://github.com/yourusername/magical-stories-generator/issues)
-
-</div>
+[Live Demo](https://enchanted-context-scribe.lovable.app)
