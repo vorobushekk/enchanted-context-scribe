@@ -55,7 +55,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-- **Lovable** for writing, debagging, assemmbling and deploying the web app for me :) 
+- **Lovable** for writing, debugging, assembling, and deploying the web app for me :) 
 - **OpenAI** for providing the GPT API for story generation
 - **Supabase** for the secure, scalable backend platform
 
