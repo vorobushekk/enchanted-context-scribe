@@ -37,65 +37,33 @@ This application leverages **Supabase** as its backend-as-a-service platform for
 - **Encrypted Storage**: All secrets encrypted at rest and in transit
 - **Audit Logging**: Complete request/response logging for debugging and monitoring
 
-## 🛠️ Tech Stack
+## 🛠️ Tech Stack 
 
-### Frontend
+### Frontend (Lovable)
 - **React 18** - Modern React with hooks and concurrent features
 - **TypeScript** - Type-safe development
 - **Tailwind CSS** - Utility-first CSS framework with custom design system
 - **Vite** - Lightning-fast build tool and dev server
 - **Lucide React** - Beautiful, customizable icons
 
-### Backend & Infrastructure
+### Backend & Infrastructure (Supabase)
 - **Supabase** - Backend-as-a-Service platform
 - **Supabase Edge Functions** - Serverless functions for API integration
 - **OpenAI GPT API** - Advanced language model for story generation
 
-### UI/UX Libraries
+### UI/UX Libraries (Lovable)
 - **Radix UI** - Accessible, unstyled UI primitives
 - **Class Variance Authority** - Type-safe component variants
 - **Sonner** - Beautiful toast notifications
 - **React Hook Form** - Performant forms with validation
 
-## 🚀 Getting Started
 
-### Prerequisites
-
-- Node.js 16+ 
-- npm or yarn or bun
-- Supabase account (for backend services)
-- OpenAI API key
-OR 
-- Lovable account to open the project 
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <YOUR_GIT_URL>
-   cd magical-stories-generator
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   bun install
-   ```
-
-3. **Set up Supabase**
-   - Create a new project at [supabase.com](https://supabase.com)
-   - Copy your project URL and anon key
-   - The Supabase configuration is already set up in the codebase
-
-4. **Configure OpenAI API Key**
+3. **Configure OpenAI API Key**
    - Add your OpenAI API key as a secret in your Supabase project dashboard
    - Navigate to Settings → Edge Functions → Secrets
    - Add `OPENAI_API_KEY` with your API key value
 
-5. **Start the development server**
+4. **Start the development server**
    ```bash
    npm run dev
    # or
@@ -104,7 +72,7 @@ OR
    bun dev
    ```
 
-6. **Open your browser**
+5. **Open your browser**
    Visit `http://localhost:8080` to see the application running.
 
 ## 📖 Usage
